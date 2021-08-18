@@ -1,196 +1,109 @@
-/*console.log("Hola mundo");
-alert("hola mundo desde el navegador");*/
-
-/*var resultados = 0;
-
-let a = 5;
-let b = 10;
-let c = 15;
-
-resultados = (3+b) *c/a *2;*/
-
-/*let nuevavariable = true;*/
-
-//condicionales
-
-/*const valor = true;
-
-if (typeof valor === "string" ) {
-    console.log("La variable cumple la condición");
-}
-else if (typeof valor === "number"){
-    console.log("La variable no cumple la condición porque es numero");
-}
-else{
-    console.log("la variable no es ninguna");
-}*/
-
-//ejercicio1
-//determinar si una persona puede votar 
-//1. edad mayor  18 años
-
-/*const edad = 32;
-
-if ((edad >= 18) && (edad <=29 )) {
-    console.log("puedes votar");
-}
-else if (edad === 30){
-    console.log("felicidades! puedes votar");
-}
-else if (edad >= 31){
-    console.log("no puedes votar");
-}*/
-
-//SWITCH
-const valor = 23;
-
-switch(typeof valor){
-    case "string":
-        console.log("tu variable es string");
-        break;
-    case "number":
-        console.log("tu variable es numero");
-         break;
-    
-    case "boolean":
-        console.log("tu variable es booleano");
-        break;
-
-    default:
-        console.log("no cumple ninguna condicion");
-        break;
+//funciones
+//function ejemplo_funcion() {}
+/*
+function saludo(){
+    alert("Hola Mundo");
 }
 
-//Ejercicio 2
-// mencionar el nombre del día dependiente del número que dé
-const dia = 5;
+saludo();*/
 
-switch(dia){
-    case 1:
-        console.log("Lunes");
-        break;
-    case 2:
-        console.log("Martes");
-         break;
-    
-    case 3:
-        console.log("Miercoles");
-        break;
-    
-    case 4:
-        console.log("Jueves");
-        break;
-
-    case 5:
-        console.log("Viernes");
-        break;
-    
-    case 6:
-        console.log("Sabado");
-        break;
-    
-    case 7:
-        console.log("Domingo");
-        break;
-
-    default:
-        console.log("no cumple ninguna condicion");
-        break;
-}
-
-//ternario, es una forma abreviada de un if/else
-
-const nombre = "Juan";
-const profesion = "contador";
-
-const resultado = nombre === "juan"
-    ? profesion === "contador"
-        ?"me ayudas con mi declaración" : "¿no conocer algun contador?" 
-    : "como te llamas?";
-    
-    console.log("el tenario entrego; ", resultado);
-
-//ejercicio3
-
-const edad = 10;
-
-edad >= 18 && (edad <=29)
-    ? console.log ("puedes votar") : (edad ===30) 
-        ? console.log ("felicidades tienes 30, puedes votar") : (edad >=31)
-            ? console.log ("ya no puedes votar por viejito") : console.log ("No cumple el valor");
-
-
-//PROMPT
-
-/*let dia2 = prompt("Escribe un numero del 1 al 7")
-dia2 = Number(dia2)
-
-switch(dia2){
-    case 1:
-        console.log("Lunes");
-        break;
-    case 2:
-        console.log("Martes");
-         break;
-    
-    case 3:
-        console.log("Miercoles");
-        break;
-    
-    case 4:
-        console.log("Jueves");
-        break;
-
-    case 5:
-        console.log("Viernes");
-        break;
-    
-    case 6:
-        console.log("Sabado");
-        break;
-    
-    case 7:
-        console.log("Domingo");
-        break;
-
-    default:
-        console.log("no cumple ninguna condicion");
-        break;
-}*/
-
-//FOR
-
-for (let i = 0; i<10; i++){
-    if (i % 2 === 0){
-        console.log(i);
-    }
-}
-
-//ejercicio 5
-
-let numeroIncio = prompt("Escribe un numero de inicio")
-let numeroFinal = prompt("Escribe un numero de final")
-
-for (let i = numeroIncio; i<=numeroFinal; i++){
-    if (i%2){
-        console.log(i*2);
-    }else if (i % 3 === 0)
-    {
-        console.log("el numero si es divisible entre 3")
+//parametros
+//ejemplo funcion que salude al usuario con su nombre
+/*
+function saludo2(nombre, juan=true){
+    if(juan){
+        alert ("Hola" + nombre + "que gusto de verte");
     }else{
-        console.log(i)
+        alert("Hola" + nombre);
+    }
+    
+}
+
+const nom = prompt("Como te llamas");
+saludo2(nom, false);*/
+
+//Ejercicio 1
+/*
+const edad = prompt("Cuál es tu edad?")
+
+function dato(usuario){
+    if(usuario == 18){
+        alert("Felicidades es tu primera votación")
+    }else if(usuario <=18){
+        alert("lo siento no puedes votar")
+    }else if(usuario >=19 && usuario <=30){
+        alert("Solo puedes votar por diputados")
+    }else if(usuario <=31){
+        alert("Muchas gracias por participar")
     }
 }
 
-//while
+dato(edad);*/ 
 
-let pregunta = true;
+/*
+const invocacion = function(){}
 
-while(pregunta){
-    console.log("esto es una iteración");
-    const respuesta = prompt ("responde de nuevo: s/n")
-    pregunta = respuesta === "s" ? true : false;
+invocacion();*/
+ 
+
+//IIFE
+// (function(){})
+
+//calculadora básica
+
+
+let num1 = 0;
+let num2 = 0;
+
+function solicitarNumeros(){
+    num1 = Number (prompt("escribe un número"));
+    num2 = Number (prompt("escribe otro número"));    
 }
 
-//ejercicio 6
+function calculadora(){
+    let promptNumeros = true;
+    while (promptNumeros){
 
+        let opciones = prompt("elige suma resta division multiplicacion");
+
+        switch(opciones){
+            case "suma":
+                solicitarNumeros();
+                if (num1 % 3 === 0 || num2 % 3 === 0){
+                    alert("0");
+                } else {
+                    alert(num1 + num2);
+                }
+                break;
+
+            case "resta":
+                solicitarNumeros();
+                if (num1 > num2){
+                    alert(num2-num1);
+                } else {
+                    alert(num1-num2);
+                }
+                break;
+            
+            case "multiplicacion":
+                solicitarNumeros();
+                if (num2 % 2 === 0)
+                    alert(num1 * num2 *2);
+                else
+                    alert(num1*num2);
+                break;
+            
+            case "division":
+                solicitarNumeros();
+                alert("resultado: " + (num1/num2) + " residuo: " + (num1 % num2));
+                break;
+
+            default: 
+                alert("Operación no valida");
+
+        }
+        
+        promptNumeros = (prompt("desea continuar? Si o No").toLowerCase() == "si");
+    }
+}
+calculadora();
